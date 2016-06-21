@@ -1,17 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
-
-namespace xamarin_forms_navigation
+﻿namespace xamarin_forms_navigation
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage
     {
-        public MainPage()
-        {
-            InitializeComponent();
-        }
+		public string[] MenuItems { get; private set; }
+
+		public MainPage()
+		{
+			MenuItems = new string[]
+			{
+				"Item #1",
+				"Item #2",
+				"Item #3"
+			};
+
+			InitializeComponent();
+
+			BindingContext = this;
+
+			ListViewMenu.SelectedItem = MenuItems[0];
+
+			ListViewMenu.ItemSelected += async (sender, e) =>
+				{
+					IsPresented = false;
+
+					var dynamicPage = new DynamicPage { Title = "New Page "};
+					await Navigation.PushAsync(dynamicPage);
+				};
+		}
     }
 }

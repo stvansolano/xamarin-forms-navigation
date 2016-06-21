@@ -5,6 +5,7 @@ using System.Text;
 
 using Xamarin.Forms;
 
+[assembly: Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
 namespace xamarin_forms_navigation
 {
     public partial class App : Application
@@ -13,7 +14,7 @@ namespace xamarin_forms_navigation
         {
             InitializeComponent();
 
-            MainPage = new xamarin_forms_navigation.MainPage();
+			MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

@@ -1,11 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:xamarin_forms_navigation"
-             x:Class="xamarin_forms_navigation.MainPage">
+             x:Class="xamarin_forms_navigation.MainPage"
+             Title="Welcome">
+	<MasterDetailPage.Master>
+		<ContentPage Title="Master">
+			<ListView x:Name="ListViewMenu"
+					  CachingStrategy="RecycleElement"
+					  SeparatorColor="Transparent"
+					  HasUnevenRows="True"
+					  ItemsSource="{Binding Path=MenuItems}">
+                <ListView.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="5"/>
+                        </Grid.RowDefinitions>
 
-  <Label Text="Welcome to Xamarin Forms!"
-           VerticalOptions="Center"
-           HorizontalOptions="Center" />
-
-</ContentPage>
+                        <BoxView Grid.ColumnSpan="3" 
+                                 Grid.RowSpan="4"
+                                 BackgroundColor="#03A9F4"/>
+		              <Label 
+                            Grid.Column="1"
+                            Grid.Row="2"
+                            Text="{Binding Path=Title}"
+                            Style="{DynamicResource SubtitleStyle}"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding Icon}" HeightRequest="25" WidthRequest="25"/>
+                                <Label Grid.Column="1" Text="{Binding}" FontSize="24"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+		</ContentPage>
+	</MasterDetailPage.Master>
+	<MasterDetailPage.Detail>
+		<ContentPage Title="Detail">
+			<Label Text="Welcome to Xamarin Forms!"
+	           VerticalOptions="Center"
+	           HorizontalOptions="Center" />
+		</ContentPage>
+	</MasterDetailPage.Detail>
+</MasterDetailPage>
