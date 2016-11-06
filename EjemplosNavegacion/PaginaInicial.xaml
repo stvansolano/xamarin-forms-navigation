@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:local="clr-namespace:EjemplosNavegacion" 
+		x:Class="EjemplosNavegacion.PaginaInicial"
+		Padding="10,10,0,0"
+		Title="">
+	<StackLayout Orientation="Vertical">
+		<Grid Margin="0,30,0,0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="60" />
+			</Grid.RowDefinitions>
+		<Label Text="Hola Xamarin Forms!" 
+			   FontSize="20"
+			   Margin="0,30,0,0"
+			   VerticalOptions="Center" HorizontalOptions="Center" />
+		</Grid>
+
+		<StackLayout Orientation="Horizontal"
+					 HorizontalOptions="EndAndExpand"
+					 Margin="0,30,10,0">
+			<Label Text="Accion" VerticalTextAlignment="Center" />
+			<Picker x:Name="PickerNavegacion" Title="Navegar a:" />
+			<Button x:Name="BtnAccion" 
+					Text="Navegar">
+			</Button>
+		</StackLayout>
+	</StackLayout>
+</ContentPage>

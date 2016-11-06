@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="EjemplosNavegacion.PaginaTabs"
+		xmlns:MisPaginas="clr-namespace:EjemplosNavegacion;assembly=EjemplosNavegacion"
+		Padding="0">
+	<TabbedPage.Children>
+		<MisPaginas:PaginaInicial Title="Inicio" />
+		<ContentPage Title="Pagina 2">
+			<ScrollView>
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*" />
+						<RowDefinition Height="Auto" />
+					</Grid.RowDefinitions>
+
+					<Label Margin="3,0" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae ipsum a purus feugiat eleifend. Nunc laoreet, turpis eu lacinia semper, urna velit luctus arcu, in fermentum dui dolor vehicula eros. Phasellus mi sapien, eleifend quis nisi ac, malesuada dictum eros. Proin semper dictum massa, at luctus justo malesuada et. In hac habitasse platea dictumst. Phasellus vel enim ut orci elementum rutrum id sed nisi. Maecenas faucibus erat massa. Nulla facilisi. Suspendisse congue orci vel pretium luctus. Nam suscipit erat eget augue imperdiet ultricies. Cras ultricies quis augue non tempus. Vestibulum et nulla lobortis, vehicula erat vitae, blandit neque. Integer tristique, arcu vel malesuada suscipit, ante purus fermentum turpis, ac congue ex dui et urna. In hac habitasse platea dictumst. Quisque tincidunt eget est vel blandit. Morbi a erat tempor, condimentum lacus a, sollicitudin nisi. Vivamus elementum pretium augue nec dapibus. Nullam sodales, erat vel varius vehicula, dolor diam finibus nulla, sed molestie magna orci vel felis. Phasellus sit amet pharetra dui. In blandit non est ac euismod. Donec tristique nisi at urna efficitur semper. Fusce dictum massa turpis, eu imperdiet nisl tristique vel. In dignissim nunc nec tincidunt placerat. Morbi at rhoncus dui, sed consequat dui. Nunc finibus, dolor at varius placerat, augue lectus bibendum metus, in congue magna enim in purus. In ornare sapien at justo posuere, nec viverra enim sollicitudin. Donec ultrices, velit id placerat porttitor, augue diam vehicula felis, at mollis nisl tellus ac lectus. Fusce maximus ultrices lorem eget porta. Donec eleifend ex ut suscipit porttitor. Etiam convallis neque libero, in iaculis sem vestibulum id. Integer quam purus, lacinia nec auctor sit amet, imperdiet a lacus. Duis eu ante mollis, blandit arcu in, dignissim libero. Vivamus vel risus eget orci rhoncus pellentesque quis vel turpis. Vestibulum eros elit, pretium egestas quam at, molestie pellentesque diam."
+						  Grid.Row="0" 
+						  />
+					<StackLayout Grid.Row="1" Orientation="Horizontal">
+						<Label FontAttributes="Bold" 
+							   FontSize="22"
+							   Text="Comentarios"/>
+						<Entry HorizontalOptions="FillAndExpand"
+							   />
+						<Button Text="Enviar" HorizontalOptions="End"  />
+					</StackLayout>
+				</Grid>
+			</ScrollView>
+			</ContentPage>
+
+		<ContentPage Title="Pagina 3">
+			<Label Text="Lorem ipsum dolor sit amet" />
+		</ContentPage>
+	</TabbedPage.Children>
+</TabbedPage>
