@@ -1,0 +1,9 @@
+*.dll
+packages/*
+EjemplosNavegacion/bin
+EjemplosNavegacion/obj
+Droid/bin
+Droid/obj
+iOS/bin
+iOS/obj
+*.userprefs
