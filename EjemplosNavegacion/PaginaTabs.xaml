@@ -20,7 +20,9 @@
 					<StackLayout Grid.Row="1" Orientation="Horizontal">
 						<Label FontAttributes="Bold" 
 							   FontSize="22"
-							   Text="Comentarios"/>
+							   Text="Comentarios"
+							   VerticalTextAlignment="Center"
+							   />
 						<Entry HorizontalOptions="FillAndExpand"
 							   />
 						<Button Text="Enviar" HorizontalOptions="End"  />
@@ -28,9 +30,10 @@
 				</Grid>
 			</ScrollView>
 			</ContentPage>
-
 		<ContentPage Title="Pagina 3">
-			<Label Text="Lorem ipsum dolor sit amet" />
+			<WebView Source="http://www.google.com" />
 		</ContentPage>
+
+		<MisPaginas:ListadoDatos Title="Datos" />
 	</TabbedPage.Children>
 </TabbedPage>

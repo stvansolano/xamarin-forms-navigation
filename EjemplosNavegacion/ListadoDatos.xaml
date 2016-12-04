@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			 x:Class="EjemplosNavegacion.ListadoDatos"
+			 x:Name="PaginaPadre">
+	<StackLayout BindingContext="{Binding Source={x:Reference Name=PaginaPadre}}">
+		<Label Text="Lista:" />
+
+		<ListView x:Name="Lista"
+				  ItemsSource="{Binding Items}"
+				  IsPullToRefreshEnabled="True"
+				  IsRefreshing="{Binding IsBusy}"
+				
+				  >
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<!--<ImageCell TextColor="Blue" 
+							   Text="{Binding Nombre}"
+							   ImageSource="icon.png"
+							  />-->
+					<ViewCell>
+						<StackLayout Orientation="Horizontal">
+							<Image>
+								<Image.Source>
+									<UriImageSource Uri="{Binding Bandera}"
+													CacheValidity="3"
+													CachingEnabled="true"
+										/>
+								</Image.Source>
+							</Image>
+							<Label TextColor="Black"
+								    Text="{Binding Nombre}" FontAttributes="Bold" />
+							<Label Text="{Binding Region}" />
+							<Label Text="{Binding Capital}" />
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</StackLayout>
+</ContentPage>

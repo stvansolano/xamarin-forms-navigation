@@ -10,7 +10,7 @@ namespace EjemplosNavegacion
 		public PaginaTabs()
 		{
 			InitializeComponent();
-		}
 
+		}
 	}
 }

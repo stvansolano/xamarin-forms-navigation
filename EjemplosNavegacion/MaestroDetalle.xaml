@@ -9,7 +9,7 @@
 			<StackLayout Orientation="Vertical">
 				<Button x:Name="Opcion1" Text="Inicio" />
 				<Button x:Name="Opcion2" Text="Tabs" />
-				<Button x:Name="Opcion3" Text="Opcion3" />
+				<Button x:Name="Opcion3" Text="MasterDetail" />
 			</StackLayout>
 		</ContentPage>
 	</MasterDetailPage.Master>

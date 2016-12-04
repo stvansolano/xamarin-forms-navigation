@@ -1,3 +1,0 @@
-﻿MainPage -> PaginaInicial
-XAML del Picker
-Navegacion desde el picker
