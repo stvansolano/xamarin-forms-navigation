@@ -19,10 +19,14 @@ namespace EjemplosNavegacion.Droid
 			ToolbarResource = Resource.Layout.Toolbar;
 
 			base.OnCreate(bundle);
-
+			SQLitePCL.Batteries.Init();
 			global::Xamarin.Forms.Forms.Init(this, bundle);
 
-			LoadApplication(new App());
+			var app = new App();
+			app.Contexto.CadenaConexion = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+			app.Contexto.CadenaConexion += "prueba.db3";
+
+			LoadApplication(app);
 		}
 	}
 }

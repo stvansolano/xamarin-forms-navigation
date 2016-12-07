@@ -1,8 +1,14 @@
 ﻿using System;
+using SQLite;
+
 namespace EjemplosNavegacion
 {
+	[Table("Paises")]
 	public class Pais
 	{
+		[PrimaryKey, NotNull]
+		public int Id { get; set; }
+
 		public string Name { get; set; }
 
 		public string Region { get; set; }
