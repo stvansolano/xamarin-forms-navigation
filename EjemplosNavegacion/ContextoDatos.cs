@@ -20,7 +20,9 @@ namespace EjemplosNavegacion
 
 		public void Configurar() 
 		{
-			var tabla = Conexion.CreateTable<Pais>();
+			Conexion.CreateTable<Pais>();
+
+			var tabla = Conexion.Table<Pais>();
 
 			Conexion.Insert(new Pais { Name = "Costa Rica" });
 
