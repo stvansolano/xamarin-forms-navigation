@@ -22,7 +22,12 @@ namespace EjemplosNavegacion.Droid
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);
 
-			LoadApplication(new App());
+			var app = new App();
+
+			app.Contexto.RutaConexion = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+			app.Contexto.RutaConexion +=  "/paises.db3";
+
+			LoadApplication(app);
 		}
 	}
 }

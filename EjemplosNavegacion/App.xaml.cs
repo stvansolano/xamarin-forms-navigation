@@ -6,8 +6,12 @@ namespace EjemplosNavegacion
 {
 	public partial class App : Application
 	{
+		public ContextoDatos Contexto { get; set; }
+
 		public App()
 		{
+			Contexto = new ContextoDatos();
+
 			InitializeComponent();
 
 			MainPage = new MaestroDetalle();
@@ -15,7 +19,7 @@ namespace EjemplosNavegacion
 
 		protected override void OnStart()
 		{
-			// Handle when your app starts
+			Contexto.Configurar();
 		}
 
 		protected override void OnSleep()
