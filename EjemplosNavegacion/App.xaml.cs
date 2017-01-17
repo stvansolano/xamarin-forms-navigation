@@ -10,16 +10,20 @@ namespace EjemplosNavegacion
 
 		public App()
 		{
-			Contexto = new ContextoDatos();
-
 			InitializeComponent();
+
+			DependencyService.Register<ContextoDatos>();
+
+			Contexto = DependencyService.Get<ContextoDatos>(DependencyFetchTarget.GlobalInstance);
+
+			DependencyService.Register<RepositorioPaises>();
 
 			MainPage = new MaestroDetalle();
 		}
 
 		protected override void OnStart()
 		{
-			Contexto.Configurar();
+			Contexto.Configurar<Pais>();
 		}
 
 		protected override void OnSleep()

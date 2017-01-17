@@ -1,7 +1,6 @@
-﻿using System;
-using SQLite;
+﻿using SQLite;
 using System.Linq;
-using System.Diagnostics;
+using System;
 
 namespace EjemplosNavegacion
 {
@@ -9,28 +8,48 @@ namespace EjemplosNavegacion
 	{
 		public string RutaConexion { get; set; }
 
-		public ContextoDatos()
+		internal void Guardar<TipoGenerico>(TipoGenerico[] coleccion)
+			where TipoGenerico : class,
+				new()
 		{
-		}
-
-		public void Configurar()
-		{
-			using (var conexion = new SQLiteConnection(RutaConexion)) 
+			using (var conexion = NuevaConexion())
 			{
-				conexion.DropTable<Pais>();
-				conexion.CreateTable<Pais>();
+				conexion.BeginTransaction();
 
-				var tabla = conexion.Table<Pais>();
-
-				conexion.Insert(new Pais { Name = "Costa Rica" });
-
-				var resultado = tabla.ToArray();
-
-				foreach (var item in resultado)
+				foreach (var item in coleccion)
 				{
-					Debug.WriteLine(item.Name);
+					conexion.Insert(item);
 				}
+
+				conexion.Commit();
 			}
 		}
-}
+
+		internal void Configurar<TipoGenerico>()
+			where TipoGenerico : class,
+				new() // Debe tener un constructor por defecto
+		{
+			using (var conexion = NuevaConexion())
+			{
+				conexion.CreateTable<TipoGenerico>();
+			}
+		}
+
+		private SQLiteConnection NuevaConexion()
+		{
+			return new SQLiteConnection(RutaConexion);
+		}
+
+		public TipoGenerico[] Obtener<TipoGenerico>()
+			where TipoGenerico : class,
+				new() // Debe tener un constructor por defecto
+		{
+			using (var conexion = NuevaConexion())
+			{
+				var tabla = conexion.Table<TipoGenerico>();
+
+				return conexion.Table<TipoGenerico>().ToArray();
+			}
+		}
+	}
 }

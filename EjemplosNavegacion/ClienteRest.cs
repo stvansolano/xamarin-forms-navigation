@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Plugin.Connectivity;
 
 namespace EjemplosNavegacion
 {
@@ -12,6 +13,11 @@ namespace EjemplosNavegacion
 	{
 		public async Task<IEnumerable<Pais>> GetPaises() 
 		{
+			if (CrossConnectivity.Current.IsConnected == false)
+			{
+				return new Pais[0];
+			}
+
 			using (var httpClient = new HttpClient()) 
 			{
 				httpClient.BaseAddress = new Uri("https://restcountries.eu/");
